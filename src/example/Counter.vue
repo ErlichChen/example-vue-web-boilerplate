@@ -7,18 +7,12 @@
 </template>
 
 <script>
-  import { createApp } from 'vue'
-
-  const Counter = {
+  export default {
+    name: "Counter",
     data() {
       return {
-        counter: 0
+        counter: 1
       }
     }
-  }
-  createApp(Counter).mount('#counter')
-
-  export default {
-    name: 'Counter'
   }
 </script>

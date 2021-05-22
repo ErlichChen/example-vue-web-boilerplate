@@ -5,12 +5,13 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import Counter from './components/Counter.vue'
+import Counter from './example/Counter.vue'
+// import Cart from './example/Cart'
 
 export default {
   name: 'App',
   components: {
-    Counter
+    Counter,
   }
 }
 </script>
