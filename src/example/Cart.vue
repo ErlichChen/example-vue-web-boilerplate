@@ -2,39 +2,61 @@
   <div id="cart">
     <h1>购物车</h1>
     <!-- 条件渲染 -->
-    <p v-if="items.length === 0">没有购物信息</p>
+    <p v-if="isEmpty">没有购物信息</p>
     <!-- 列表渲染 -->
     <button v-on:click="reduce">减少</button>
     <input v-model="food" type="text" v-on:keydown.enter="add" placeholder="请输入要添加的食物">
     <p>添加的食物: {{ food }}</p>
     <ul>
-      <li v-for="item in items" :key="item.id">
-        {{ item.message }}
+      <li v-for="(item, index) in items" :key="index"  @click="select(item)">
+        {{ item }}
       </li>
     </ul>
   </div>
 </template>
+
+<style>
+  .selected {
+    color: blue;
+  }
+  .unselected {
+    color:black;
+  }
+</style>
 
 <script>
   export default {
     name: 'Cart',
     data() {
       return {
-        items: [{ id: 0, message: '苹果' },
-          { id: 1, message: '橙子' }],
+        items: [ '苹果', '橙子'],
+        item: 0,
         food: ""
       }
     },
     methods: {
       add() {
-        this.items.push({
-          id: this.items.length,
-          message: this.food
-        })
+        this.items.push(this.food)
       },
       reduce() {
         this.items.pop()
+      },
+      select(it) {
+        // console.log(it)
+        this.item = it
       }
-    }
+    },
+    computed: {
+      // 计算属性的 getter
+      isEmpty() {
+        return this.items.length > 0 ? false : true
+      }
+    },
+    watch: {
+      item(newItem, oldItem) {
+        console.log(newItem);
+        console.log(oldItem);
+      },
+    },
   }
 </script>
