@@ -25,14 +25,48 @@
 </style>
 
 <script>
+  function getFoods() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(['苹果', '橙子'])
+      }, 2000);
+    })
+  }
+
   export default {
     name: 'Cart',
     data() {
       return {
-        items: [ '苹果', '橙子'],
+        items: [],
         item: 0,
         food: ""
       }
+    },
+    beforeCreate() {
+      console.log("beforeCreate")
+    },
+    async created() {
+      console.log("created")
+      const items = await getFoods()
+      this.items = items
+    },
+    beforeMount() {
+      console.log("beforeMount")
+    },
+    mounted() {
+      console.log("mounted")
+    },
+    beforeUpdate() {
+      console.log("beforeUpdate")
+    },
+    updated() {
+      console.log("updated")
+    },
+    beforeUnmount() {
+      console.log("beforeUnmount")
+    },
+    unmounted() {
+      console.log("unmounted")
     },
     methods: {
       add() {
