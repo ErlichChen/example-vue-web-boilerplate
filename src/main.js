@@ -15,6 +15,7 @@ import { createApp } from 'vue'
 
 // import App from './App.vue'
 // import Counter from './example/Counter.vue'
-import Cart from './example/Cart.vue'
+// import Cart from './example/Cart.vue'
+import CartApp from './example/CartApp.vue'
 
-createApp(Cart).mount('#app')
+createApp(CartApp).mount('#app')
