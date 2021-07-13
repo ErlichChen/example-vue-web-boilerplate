@@ -5,6 +5,7 @@
     rel="stylesheet"
     type="text/css"
   />
+
   <div>
     <cart-message :show="show" class="success">
         <template v-slot:default>
